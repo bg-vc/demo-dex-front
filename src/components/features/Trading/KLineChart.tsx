@@ -21,25 +21,23 @@ const KLineChart = () => {
       layout: {
         background: { type: ColorType.Solid, color: '#1A1B1E' },
         textColor: '#d1d4dc',
+        fontSize: 12,
+        fontFamily: 'Inter, sans-serif',
+      },
+      watermark: {
+        visible: false,
+        color: 'transparent',
       },
       grid: {
         vertLines: { color: '#2B2F36' },
         horzLines: { color: '#2B2F36' },
       },
-      crosshair: {
-        mode: CrosshairMode.Normal,
-        vertLine: {
-          color: '#4A4F58',
-          width: 1,
-          style: 3,
-          labelBackgroundColor: '#2B2F36',
-        },
-        horzLine: {
-          color: '#4A4F58',
-          width: 1,
-          style: 3,
-          labelBackgroundColor: '#2B2F36',
-        },
+      overlayPriceScales: {
+        borderVisible: false,
+      },
+      leftPriceScale: {
+        visible: false,
+        borderVisible: false,
       },
       rightPriceScale: {
         borderColor: '#2B2F36',
@@ -81,6 +79,21 @@ const KLineChart = () => {
         horzTouchDrag: true,
         vertTouchDrag: true,
       },
+      crosshair: {
+        mode: CrosshairMode.Normal,
+        vertLine: {
+          color: '#4A4F58',
+          width: 1,
+          style: 3,
+          labelBackgroundColor: '#2B2F36',
+        },
+        horzLine: {
+          color: '#4A4F58',
+          width: 1,
+          style: 3,
+          labelBackgroundColor: '#2B2F36',
+        },
+      },
     })
 
     // 设置图表大小
@@ -89,7 +102,7 @@ const KLineChart = () => {
         const { width, height } = chartContainerRef.current.getBoundingClientRect()
         chartRef.current.applyOptions({
           width,
-          height: Math.min(height, 400),  // 限制最大高度
+          height: Math.min(height, 550),  // 增加最大高度限制
         })
         chartRef.current.timeScale().fitContent()
       }
@@ -212,7 +225,11 @@ const KLineChart = () => {
   }, [isChartReady, selectedPair, selectedTimeframe, klineData])
 
   return (
-    <div className="absolute inset-0" ref={chartContainerRef} />
+    <div 
+      ref={chartContainerRef} 
+      className="w-full h-full tv-lightweight-charts"
+      style={{ position: 'relative' }}
+    />
   )
 }
 

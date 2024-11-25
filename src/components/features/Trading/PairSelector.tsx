@@ -48,10 +48,10 @@ const PairSelector = () => {
       {/* 选择器按钮 */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-4 py-2 bg-[#2B2F36] rounded hover:bg-[#3B3F46] transition-colors w-[400px]"
+        className="flex items-center space-x-2 px-4 py-2 bg-[#2B2F36] rounded hover:bg-[#3B3F46] transition-colors w-[240px]"
       >
         <div className="flex-1 flex items-center space-x-2">
-          <span className="font-medium">{selectedPair?.symbol || 'Select Market'}</span>
+          <span className="font-medium">{selectedPair?.symbol || 'Select Pair'}</span>
           {selectedPair && (
             <span className={`text-sm ${
               selectedPair.priceChange24h >= 0 ? 'text-[#00C076]' : 'text-[#FF5B5B]'
@@ -70,10 +70,10 @@ const PairSelector = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search markets"
+                placeholder="Search Pair"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#2B2F36] rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#4A4F58]"
+                className="w-full bg-[#2B2F36] rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#00C076]"
               />
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
             </div>
@@ -81,10 +81,10 @@ const PairSelector = () => {
           
           <div className="max-h-[400px] overflow-y-auto">
             <div className="grid grid-cols-5 px-4 py-2 text-xs text-gray-400 sticky top-0 bg-[#1A1B1E]">
-              <span className="col-span-2">Market</span>
-              <span className="text-right">Price</span>
+              <span className="col-span-2">Pair</span>
+              <span>Price</span>
               <span className="text-right">24h Change</span>
-              <span className="text-right">24h Volume</span>
+              <span className="text-right pr-4">24h Volume</span>
             </div>
 
             <div className="px-4 pb-4">
@@ -112,7 +112,7 @@ const PairSelector = () => {
                     </button>
                     <span>{pair.symbol}</span>
                   </div>
-                  <span className="text-right">
+                  <span>
                     {formatPriceWithPrecision(pair.lastPrice)}
                   </span>
                   <span className={`text-right ${
@@ -120,7 +120,7 @@ const PairSelector = () => {
                   }`}>
                     {pair.priceChange24h >= 0 ? '+' : ''}{pair.priceChange24h.toFixed(2)}%
                   </span>
-                  <span className="text-right">
+                  <span className="text-right pr-4">
                     {pair.volume24h.toLocaleString(undefined, {
                       minimumFractionDigits: 0,
                       maximumFractionDigits: 0,

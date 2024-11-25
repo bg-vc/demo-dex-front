@@ -85,8 +85,6 @@ const TradingControls = () => {
     )
   }
 
-  const inputClasses = "w-full bg-[#2B2F36] rounded px-3 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#00C076] transition-colors"
-
   return (
     <div className="bg-[#1A1B1E] rounded-lg border border-[#2B2F36]">
       <div className="p-4 border-b border-[#2B2F36]">
@@ -94,22 +92,22 @@ const TradingControls = () => {
           <h2 className="text-sm font-semibold">Place Order</h2>
           <div className="flex space-x-2">
             <button
-              onClick={() => setOrderType('limit')}
-              className={`px-3 py-1 text-xs rounded transition-colors ${
+              className={`flex-1 px-4 py-2 rounded text-sm ${
                 orderType === 'limit'
-                  ? isBuySelected ? 'bg-[#00C076] text-white' : 'bg-[#FF5B5B] text-white'
+                  ? 'bg-[#00C076] text-white'
                   : 'text-gray-400 hover:text-white hover:bg-[#2B2F36]'
               }`}
+              onClick={() => setOrderType('limit')}
             >
               Limit
             </button>
             <button
-              onClick={() => setOrderType('market')}
-              className={`px-3 py-1 text-xs rounded transition-colors ${
+              className={`flex-1 px-4 py-2 rounded text-sm ${
                 orderType === 'market'
-                  ? isBuySelected ? 'bg-[#00C076] text-white' : 'bg-[#FF5B5B] text-white'
+                  ? 'bg-[#00C076] text-white'
                   : 'text-gray-400 hover:text-white hover:bg-[#2B2F36]'
               }`}
+              onClick={() => setOrderType('market')}
             >
               Market
             </button>
@@ -120,38 +118,31 @@ const TradingControls = () => {
       <div className="p-4 space-y-4">
         {/* Price Input */}
         {orderType === 'limit' && (
-          <div className="space-y-2">
-            <label className="block text-xs text-gray-400">
-              Price ({selectedPair.quote})
-            </label>
+          <div className="mb-4">
+            <label className="block text-xs text-gray-400 mb-2">Price ({selectedPair.quote})</label>
             <div className="relative">
               <input
                 type="number"
-                className={inputClasses}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                className="w-full bg-[#141518] border border-[#2B2F36] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#00C076] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 placeholder="0.00"
-                min="0"
-                step="0.01"
+                disabled={orderType === 'market'}
               />
             </div>
           </div>
         )}
 
         {/* Amount Input */}
-        <div className="space-y-2">
-          <label className="block text-xs text-gray-400">
-            Amount ({selectedPair.base})
-          </label>
+        <div className="mb-4">
+          <label className="block text-xs text-gray-400 mb-2">Amount ({selectedPair.base})</label>
           <div className="relative">
             <input
               type="number"
-              className={inputClasses}
               value={amount}
-              onChange={handleAmountChange}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full bg-[#141518] border border-[#2B2F36] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#00C076] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               placeholder="0.00"
-              min="0"
-              step="0.00000001"
             />
             <div className="absolute right-2 top-1/2 -translate-y-1/2 flex space-x-1">
               <button
@@ -183,19 +174,15 @@ const TradingControls = () => {
         </div>
 
         {/* Total */}
-        <div className="space-y-2">
-          <label className="block text-xs text-gray-400">
-            Total ({selectedPair.quote})
-          </label>
+        <div className="mb-6">
+          <label className="block text-xs text-gray-400 mb-2">Total ({selectedPair.quote})</label>
           <div className="relative">
             <input
               type="number"
-              className={inputClasses}
               value={total}
-              onChange={handleTotalChange}
+              readOnly
+              className="w-full bg-[#141518] border border-[#2B2F36] rounded px-3 py-2 text-sm focus:outline-none focus:border-[#00C076] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               placeholder="0.00"
-              min="0"
-              step="0.01"
             />
           </div>
         </div>

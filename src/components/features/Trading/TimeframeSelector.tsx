@@ -25,7 +25,7 @@ export default function TimeframeSelector() {
           className={`px-3 py-1 text-xs rounded ${
             selectedTimeframe === value
               ? 'bg-[#00C076] text-white'
-              : 'text-gray-400 hover:bg-[#2B2F36]'
+              : 'text-gray-400 hover:text-white hover:bg-[#2B2F36]'
           }`}
         >
           {label}

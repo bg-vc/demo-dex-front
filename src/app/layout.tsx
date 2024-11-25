@@ -1,6 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { TradingProvider } from '@/contexts/TradingContext'
+import { Inter, Orbitron } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+const orbitron = Orbitron({ subsets: ['latin'], weight: ['700'] })
 
 export const metadata: Metadata = {
   title: 'DEX Trading Platform',
@@ -14,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#1A1B1E] text-white">
+      <body className={`${inter.className} bg-[#1A1B1E] text-white`}>
         <TradingProvider>
           {children}
         </TradingProvider>

@@ -22,7 +22,7 @@ const RecentTrades = () => {
       <div className="p-4 border-b border-[#2B2F36]">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold">Recent Trades</h2>
-          <span className="text-xs text-gray-400">Last 6 trades</span>
+          <span className="text-xs text-gray-400">Last 10 trades</span>
         </div>
       </div>
 
@@ -35,7 +35,7 @@ const RecentTrades = () => {
         </div>
 
         <div className="flex-1 min-h-0 overflow-y-auto px-4 space-y-1">
-          {recentTrades.slice(0, 6).map((trade) => (
+          {recentTrades.slice(0, 10).map((trade) => (
             <div
               key={trade.id}
               className="grid grid-cols-4 py-1 text-sm border-t border-[#2B2F36] hover:bg-[#2B2F36] transition-colors"

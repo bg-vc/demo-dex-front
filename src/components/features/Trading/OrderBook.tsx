@@ -21,11 +21,11 @@ const OrderBook = () => {
     )
 
     return {
-      processedAsks: orderBook.asks.slice(0, 6),
-      processedBids: orderBook.bids.slice(0, 6),
+      processedAsks: orderBook.asks.slice(0, displayType === 'both' ? 10 : 10),
+      processedBids: orderBook.bids.slice(0, displayType === 'both' ? 10 : 10),
       maxTotal,
     }
-  }, [orderBook])
+  }, [orderBook, displayType])
 
   const renderOrderRow = (order: OrderBookEntry, maxTotal: number, type: 'ask' | 'bid') => (
     <div
@@ -39,13 +39,15 @@ const OrderBook = () => {
           width: `${(order.total / maxTotal) * 100}%`,
           right: type === 'ask' ? 0 : 'auto',
           left: type === 'ask' ? 'auto' : 0,
+          marginRight: type === 'ask' ? '-8px' : 0,
+          marginLeft: type === 'ask' ? 0 : '-8px',
         }}
       />
-      <span className={`relative z-10 ${type === 'ask' ? 'text-[#FF5B5B]' : 'text-[#00C076]'}`}>
+      <span className={`relative z-10 ${type === 'ask' ? 'text-[#FF5B5B]' : 'text-[#00C076]'} px-2`}>
         {formatPriceWithPrecision(order.price, 2)}
       </span>
-      <span className="text-right relative z-10">{formatNumber(order.size, { minimumFractionDigits: 4 })}</span>
-      <span className="text-right text-gray-400 relative z-10">{formatNumber(order.total, { minimumFractionDigits: 4 })}</span>
+      <span className="text-right relative z-10 px-2">{formatNumber(order.size, { minimumFractionDigits: 4 })}</span>
+      <span className="text-right relative z-10 px-2">{formatNumber(order.total, { minimumFractionDigits: 4 })}</span>
     </div>
   )
 
@@ -58,11 +60,11 @@ const OrderBook = () => {
   }
 
   return (
-    <div className="bg-[#1A1B1E] rounded-lg border border-[#2B2F36] h-full flex flex-col">
-      <div className="p-4 border-b border-[#2B2F36] shrink-0">
-        <div className="flex items-center justify-between mb-4">
+    <div className="bg-[#1A1B1E] rounded-lg border border-[#2B2F36] flex flex-col">
+      <div className="p-2 border-b border-[#2B2F36] shrink-0">
+        <div className="flex items-center justify-between mb-2">
           <h2 className="text-sm font-semibold">Order Book</h2>
-          <div className="flex space-x-2">
+          <div className="flex space-x-1">
             <button
               className={`px-3 py-1 text-xs rounded ${
                 displayType === 'both'
@@ -102,15 +104,19 @@ const OrderBook = () => {
         </div>
       </div>
 
-      <div className="flex-1 min-h-0 flex flex-col">
+      <div className="flex-1 overflow-hidden flex flex-col">
         {/* 卖单区域 */}
-        <div className={`${displayType === 'buys' ? 'hidden' : 'flex-1'} min-h-0 overflow-y-auto p-4 space-y-1`}>
-          {processedAsks.map((ask) => renderOrderRow(ask, maxTotal, 'ask'))}
-        </div>
+        {displayType !== 'buys' && (
+          <div className={`${displayType === 'both' ? 'h-[calc(50%-16px)]' : ''} overflow-y-auto overflow-x-hidden`}>
+            <div className="space-y-0.5 p-2">
+              {processedAsks.map((ask) => renderOrderRow(ask, maxTotal, 'ask'))}
+            </div>
+          </div>
+        )}
 
         {/* 当前价格区域 */}
         {displayType === 'both' && (
-          <div className="px-4 py-2 border-y border-[#2B2F36] bg-[#1D1F23] text-center text-sm shrink-0">
+          <div className="h-8 px-2 border-y border-[#2B2F36] bg-[#1D1F23] flex items-center justify-center text-sm shrink-0">
             <span className="text-white font-medium">${formatPriceWithPrecision(selectedPair.lastPrice, 2)}</span>
             <span className={`ml-2 ${
               selectedPair.priceChange24h >= 0 ? 'text-[#00C076]' : 'text-[#FF5B5B]'
@@ -121,9 +127,13 @@ const OrderBook = () => {
         )}
 
         {/* 买单区域 */}
-        <div className={`${displayType === 'sells' ? 'hidden' : 'flex-1'} min-h-0 overflow-y-auto p-4 space-y-1`}>
-          {processedBids.map((bid) => renderOrderRow(bid, maxTotal, 'bid'))}
-        </div>
+        {displayType !== 'sells' && (
+          <div className={`${displayType === 'both' ? 'h-[calc(50%-16px)]' : ''} overflow-y-auto overflow-x-hidden`}>
+            <div className="space-y-0.5 p-2">
+              {processedBids.map((bid) => renderOrderRow(bid, maxTotal, 'bid'))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

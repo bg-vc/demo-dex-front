@@ -59,3 +59,12 @@ button:hover {
 button:active {
   transform: translateY(0);
 }
+
+/* Hide TradingView watermark */
+.tv-lightweight-charts > div > canvas:last-child {
+  display: none !important;
+}
+
+.lightweight-charts-bottom-legend {
+  display: none !important;
+}
