@@ -10,6 +10,26 @@ exports.id = "vendor-chunks/next";
 exports.ids = ["vendor-chunks/next"];
 exports.modules = {
 
+/***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
+  \************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Inter_d65c78', '__Inter_Fallback_d65c78'\",\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_d65c78\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvbGF5b3V0LnRzeFwiLFwiaW1wb3J0XCI6XCJJbnRlclwiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJsYXRpblwiXX1dLFwidmFyaWFibGVOYW1lXCI6XCJpbnRlclwifSIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsV0FBVyxnRkFBZ0Y7QUFDM0Y7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL2JnLWRleC1mcm9udC8uL25vZGVfbW9kdWxlcy9uZXh0L2ZvbnQvZ29vZ2xlL3RhcmdldC5jc3M/OTc5MCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnRzXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0XCJzdHlsZVwiOiB7XCJmb250RmFtaWx5XCI6XCInX19JbnRlcl9kNjVjNzgnLCAnX19JbnRlcl9GYWxsYmFja19kNjVjNzgnXCIsXCJmb250U3R5bGVcIjpcIm5vcm1hbFwifSxcblx0XCJjbGFzc05hbWVcIjogXCJfX2NsYXNzTmFtZV9kNjVjNzhcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}\n");
+
+/***/ }),
+
+/***/ "(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/components/layout/Header.tsx\",\"import\":\"Orbitron\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"700\"]}],\"variableName\":\"orbitron\"}":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/components/layout/Header.tsx","import":"Orbitron","arguments":[{"subsets":["latin"],"weight":["700"]}],"variableName":"orbitron"} ***!
+  \*************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Orbitron_d7aef6', '__Orbitron_Fallback_d7aef6'\",\"fontWeight\":700,\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_d7aef6\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9jb21wb25lbnRzL2xheW91dC9IZWFkZXIudHN4XCIsXCJpbXBvcnRcIjpcIk9yYml0cm9uXCIsXCJhcmd1bWVudHNcIjpbe1wic3Vic2V0c1wiOltcImxhdGluXCJdLFwid2VpZ2h0XCI6W1wiNzAwXCJdfV0sXCJ2YXJpYWJsZU5hbWVcIjpcIm9yYml0cm9uXCJ9IiwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQSxXQUFXLHVHQUF1RztBQUNsSDtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vYmctZGV4LWZyb250Ly4vbm9kZV9tb2R1bGVzL25leHQvZm9udC9nb29nbGUvdGFyZ2V0LmNzcz84ZmRlIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIEV4cG9ydHNcbm1vZHVsZS5leHBvcnRzID0ge1xuXHRcInN0eWxlXCI6IHtcImZvbnRGYW1pbHlcIjpcIidfX09yYml0cm9uX2Q3YWVmNicsICdfX09yYml0cm9uX0ZhbGxiYWNrX2Q3YWVmNidcIixcImZvbnRXZWlnaHRcIjo3MDAsXCJmb250U3R5bGVcIjpcIm5vcm1hbFwifSxcblx0XCJjbGFzc05hbWVcIjogXCJfX2NsYXNzTmFtZV9kN2FlZjZcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/components/layout/Header.tsx\",\"import\":\"Orbitron\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"700\"]}],\"variableName\":\"orbitron\"}\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/next/dist/client/add-base-path.js":
 /*!********************************************************!*\
   !*** ./node_modules/next/dist/client/add-base-path.js ***!
