@@ -1,4 +1,4 @@
-// File: /Users/vincecfl/Documents/BuildWithAI/bg-dex-front/src/app/page.tsx
+// File: /Users/vincecfl/Documents/BuildWithAI/bg-demo/demo-dex-front/src/app/page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
